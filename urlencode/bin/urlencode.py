@@ -1,4 +1,3 @@
-"""
 # Author: Bernardo Macias <bmacias@httpstergeek.com>
 #
 #
@@ -15,11 +14,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""
+
 from splunklib.searchcommands import (dispatch, StreamingCommand,
                                       Configuration, Option, validators)
 import sys
 import urllib
+
+
+def encode(s):
+    try:
+        return urllib.quote_plus(s)
+    except Exception as e:
+        return e
 
 
 @Configuration(local=True, type='eventing',
@@ -37,10 +43,10 @@ class urlencodeCommand(StreamingCommand):
                 if field not in record:
                     self.logger.warn('{} not in in record'.format(record))
                     next
-            if len(record[field]) == 0:
-                next
-
-            pass
+                if len(record[field]) == 0:
+                    next
+                    record['en_{}'.format(field)] = encode(record[field])
+            yield record
 
 
 dispatch(urlencodeCommand, sys.argv, sys.stdin, sys.stdout, __name__)
