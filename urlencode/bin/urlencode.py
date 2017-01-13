@@ -28,8 +28,7 @@ def encode(s):
         return e
 
 
-@Configuration(local=True, type='eventing',
-               retainsevents=True, streaming=False)
+@Configuration(local=True)
 class urlencodeCommand(StreamingCommand):
 
     fields = Option(require=True, validate=validators.List())
@@ -45,7 +44,7 @@ class urlencodeCommand(StreamingCommand):
                     next
                 if len(record[field]) == 0:
                     next
-                    record['en_{}'.format(field)] = encode(record[field])
+                record['en_{}'.format(field)] = encode(record[field])
             yield record
 
 
