@@ -1,0 +1,40 @@
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+### Windows template
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+### python template
+*.idea
+/local
+*.iml
+*.DS_STORE
+*.pyc
+*.log
+out/
+local/
+splunklib
+requests_futures
+h1
+concurrent
+dateutil
+test.py
+
+
