@@ -4,7 +4,9 @@ Custom Splunk command to urlencode fields. Used to build proper urls from data i
 
 ## Getting Started
 
-Copy or Clone the urlencode directory to $SPLUNK_HOME/etc/apps. Once installed restart Splunk.
+* Copy or Clone the urlencode directory to $SPLUNK_HOME/etc/apps.
+* run urlencode/build/setup.sh  - Will install splunk sdk
+* Once installed restart Splunk.
 
 ## Usage
 
