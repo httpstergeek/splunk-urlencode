@@ -44,7 +44,7 @@ class urlencodeCommand(StreamingCommand):
                     next
                 if len(record[field]) == 0:
                     next
-                record['en_{}'.format(field)] = encode(record[field])
+                record[field] = encode(record[field])
             yield record
 
 
